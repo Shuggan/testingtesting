@@ -42,8 +42,8 @@ void print_memlist() {
             else
                 printf("ALLOCATED, ");
 
-            printf("%u KB, ", current->pdata->start_addr / 1024);
-            printf("%u KB -> ", current->pdata->size / 1024);
+            printf("%u, ", current->pdata->start_addr / 1024);
+            printf("%u -> ", current->pdata->size / 1024);
             current = current->next;
         }
         printf("\n");

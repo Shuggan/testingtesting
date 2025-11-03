@@ -16,6 +16,7 @@ void dbprintf(char *format, ...);
 // memory manager. You can delete the
 // val field. It is only used for testlist.c
 typedef struct td {
+    int val;                  
     unsigned int status;      // FREE or ALLOCATED
     unsigned int start_addr;  // Starting address of the block
     unsigned int size;        // Size of the block in bytes
