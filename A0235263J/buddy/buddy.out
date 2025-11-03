@@ -1,0 +1,162 @@
+
+Allocating 512 KBytes to ptr1
+Allocated 512 KB successfully to ptr1
+Block size 1024 KB: ALLOCATED, 0, 1024 -> 
+Block size 512 KB: ALLOCATED, 0, 512 -> FREE, 512, 512 -> 
+Block size 256 KB: 
+Block size 128 KB: 
+Block size 64 KB: 
+Block size 32 KB: 
+Block size 16 KB: 
+Block size 8 KB: 
+Block size 4 KB: 
+Block size 2 KB: 
+Block size 1 KB: 
+
+Allocating 120 KBytes to ptr2
+Allocated 120 KB successfully to ptr2
+Block size 1024 KB: ALLOCATED, 0, 1024 -> 
+Block size 512 KB: ALLOCATED, 0, 512 -> ALLOCATED, 512, 512 -> 
+Block size 256 KB: ALLOCATED, 512, 256 -> FREE, 768, 256 -> 
+Block size 128 KB: ALLOCATED, 512, 128 -> FREE, 640, 128 -> 
+Block size 64 KB: 
+Block size 32 KB: 
+Block size 16 KB: 
+Block size 8 KB: 
+Block size 4 KB: 
+Block size 2 KB: 
+Block size 1 KB: 
+
+Allocating 100 KBytes to ptr3
+Allocated 100 KB successfully to ptr3
+Block size 1024 KB: ALLOCATED, 0, 1024 -> 
+Block size 512 KB: ALLOCATED, 0, 512 -> ALLOCATED, 512, 512 -> 
+Block size 256 KB: ALLOCATED, 512, 256 -> FREE, 768, 256 -> 
+Block size 128 KB: ALLOCATED, 512, 128 -> ALLOCATED, 640, 128 -> 
+Block size 64 KB: 
+Block size 32 KB: 
+Block size 16 KB: 
+Block size 8 KB: 
+Block size 4 KB: 
+Block size 2 KB: 
+Block size 1 KB: 
+
+Freeing ptr2
+Block size 1024 KB: ALLOCATED, 0, 1024 -> 
+Block size 512 KB: ALLOCATED, 0, 512 -> ALLOCATED, 512, 512 -> 
+Block size 256 KB: ALLOCATED, 512, 256 -> FREE, 768, 256 -> 
+Block size 128 KB: FREE, 512, 128 -> ALLOCATED, 640, 128 -> 
+Block size 64 KB: 
+Block size 32 KB: 
+Block size 16 KB: 
+Block size 8 KB: 
+Block size 4 KB: 
+Block size 2 KB: 
+Block size 1 KB: 
+
+Allocating 80 KBytes to ptr2
+Allocated 80 KB successfully to ptr2
+Block size 1024 KB: ALLOCATED, 0, 1024 -> 
+Block size 512 KB: ALLOCATED, 0, 512 -> ALLOCATED, 512, 512 -> 
+Block size 256 KB: ALLOCATED, 512, 256 -> FREE, 768, 256 -> 
+Block size 128 KB: ALLOCATED, 512, 128 -> ALLOCATED, 640, 128 -> 
+Block size 64 KB: 
+Block size 32 KB: 
+Block size 16 KB: 
+Block size 8 KB: 
+Block size 4 KB: 
+Block size 2 KB: 
+Block size 1 KB: 
+
+Allocating 280 KBytes to ptr4
+Allocation failed.
+Block size 1024 KB: ALLOCATED, 0, 1024 -> 
+Block size 512 KB: ALLOCATED, 0, 512 -> ALLOCATED, 512, 512 -> 
+Block size 256 KB: ALLOCATED, 512, 256 -> FREE, 768, 256 -> 
+Block size 128 KB: ALLOCATED, 512, 128 -> ALLOCATED, 640, 128 -> 
+Block size 64 KB: 
+Block size 32 KB: 
+Block size 16 KB: 
+Block size 8 KB: 
+Block size 4 KB: 
+Block size 2 KB: 
+Block size 1 KB: 
+
+Freeing ptr2
+Block size 1024 KB: ALLOCATED, 0, 1024 -> 
+Block size 512 KB: ALLOCATED, 0, 512 -> ALLOCATED, 512, 512 -> 
+Block size 256 KB: ALLOCATED, 512, 256 -> FREE, 768, 256 -> 
+Block size 128 KB: FREE, 512, 128 -> ALLOCATED, 640, 128 -> 
+Block size 64 KB: 
+Block size 32 KB: 
+Block size 16 KB: 
+Block size 8 KB: 
+Block size 4 KB: 
+Block size 2 KB: 
+Block size 1 KB: 
+
+Allocating 30 KBytes to ptr5
+Allocated 30 KB successfully to ptr5
+Block size 1024 KB: ALLOCATED, 0, 1024 -> 
+Block size 512 KB: ALLOCATED, 0, 512 -> ALLOCATED, 512, 512 -> 
+Block size 256 KB: ALLOCATED, 512, 256 -> FREE, 768, 256 -> 
+Block size 128 KB: ALLOCATED, 512, 128 -> ALLOCATED, 640, 128 -> 
+Block size 64 KB: ALLOCATED, 512, 64 -> FREE, 576, 64 -> 
+Block size 32 KB: ALLOCATED, 512, 32 -> FREE, 544, 32 -> 
+Block size 16 KB: 
+Block size 8 KB: 
+Block size 4 KB: 
+Block size 2 KB: 
+Block size 1 KB: 
+
+Freeing ptr1
+Block size 1024 KB: ALLOCATED, 0, 1024 -> 
+Block size 512 KB: FREE, 0, 512 -> ALLOCATED, 512, 512 -> 
+Block size 256 KB: ALLOCATED, 512, 256 -> FREE, 768, 256 -> 
+Block size 128 KB: ALLOCATED, 512, 128 -> ALLOCATED, 640, 128 -> 
+Block size 64 KB: ALLOCATED, 512, 64 -> FREE, 576, 64 -> 
+Block size 32 KB: ALLOCATED, 512, 32 -> FREE, 544, 32 -> 
+Block size 16 KB: 
+Block size 8 KB: 
+Block size 4 KB: 
+Block size 2 KB: 
+Block size 1 KB: 
+
+Freeing ptr3
+Block size 1024 KB: ALLOCATED, 0, 1024 -> 
+Block size 512 KB: FREE, 0, 512 -> ALLOCATED, 512, 512 -> 
+Block size 256 KB: ALLOCATED, 512, 256 -> FREE, 768, 256 -> 
+Block size 128 KB: ALLOCATED, 512, 128 -> FREE, 640, 128 -> 
+Block size 64 KB: ALLOCATED, 512, 64 -> FREE, 576, 64 -> 
+Block size 32 KB: ALLOCATED, 512, 32 -> FREE, 544, 32 -> 
+Block size 16 KB: 
+Block size 8 KB: 
+Block size 4 KB: 
+Block size 2 KB: 
+Block size 1 KB: 
+
+Freeing ptr4
+Block size 1024 KB: ALLOCATED, 0, 1024 -> 
+Block size 512 KB: FREE, 0, 512 -> ALLOCATED, 512, 512 -> 
+Block size 256 KB: ALLOCATED, 512, 256 -> FREE, 768, 256 -> 
+Block size 128 KB: ALLOCATED, 512, 128 -> FREE, 640, 128 -> 
+Block size 64 KB: ALLOCATED, 512, 64 -> FREE, 576, 64 -> 
+Block size 32 KB: ALLOCATED, 512, 32 -> FREE, 544, 32 -> 
+Block size 16 KB: 
+Block size 8 KB: 
+Block size 4 KB: 
+Block size 2 KB: 
+Block size 1 KB: 
+
+Freeing ptr5
+Block size 1024 KB: FREE, 0, 1024 -> 
+Block size 512 KB: 
+Block size 256 KB: 
+Block size 128 KB: 
+Block size 64 KB: 
+Block size 32 KB: 
+Block size 16 KB: 
+Block size 8 KB: 
+Block size 4 KB: 
+Block size 2 KB: 
+Block size 1 KB: 

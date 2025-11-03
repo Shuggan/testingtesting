@@ -1,0 +1,110 @@
+
+Allocating 2048 bytes to ptr1
+Total Size = 65536 bytes
+Start Address = 0x100304000
+Partition Meta Size = 16 bytes
+Status: ALLOCATED Start index: + 0 Length: 2048
+Status: FREE Start index: + 2064 Length: 63456
+
+Allocating 6144 bytes to ptr2
+Total Size = 65536 bytes
+Start Address = 0x100304000
+Partition Meta Size = 16 bytes
+Status: ALLOCATED Start index: + 0 Length: 2048
+Status: ALLOCATED Start index: + 2064 Length: 6144
+Status: FREE Start index: + 8224 Length: 57296
+
+Allocating 1024 bytes to ptr3
+Total Size = 65536 bytes
+Start Address = 0x100304000
+Partition Meta Size = 16 bytes
+Status: ALLOCATED Start index: + 0 Length: 2048
+Status: ALLOCATED Start index: + 2064 Length: 6144
+Status: ALLOCATED Start index: + 8224 Length: 1024
+Status: FREE Start index: + 9264 Length: 56256
+
+Freeing ptr2
+Total Size = 65536 bytes
+Start Address = 0x100304000
+Partition Meta Size = 16 bytes
+Status: ALLOCATED Start index: + 0 Length: 2048
+Status: FREE Start index: + 2064 Length: 6144
+Status: ALLOCATED Start index: + 8224 Length: 1024
+Status: FREE Start index: + 9264 Length: 56256
+
+Allocating 2047 bytes to ptr2
+Total Size = 65536 bytes
+Start Address = 0x100304000
+Partition Meta Size = 16 bytes
+Status: ALLOCATED Start index: + 0 Length: 2048
+Status: ALLOCATED Start index: + 2064 Length: 2047
+Status: FREE Start index: + 4127 Length: 4081
+Status: ALLOCATED Start index: + 8224 Length: 1024
+Status: FREE Start index: + 9264 Length: 56256
+
+Allocating 4096 bytes to ptr4
+Total Size = 65536 bytes
+Start Address = 0x100304000
+Partition Meta Size = 16 bytes
+Status: ALLOCATED Start index: + 0 Length: 2048
+Status: ALLOCATED Start index: + 2064 Length: 2047
+Status: FREE Start index: + 4127 Length: 4081
+Status: ALLOCATED Start index: + 8224 Length: 1024
+Status: ALLOCATED Start index: + 9264 Length: 4096
+Status: FREE Start index: + 13376 Length: 52144
+
+Freeing ptr2
+Total Size = 65536 bytes
+Start Address = 0x100304000
+Partition Meta Size = 16 bytes
+Status: ALLOCATED Start index: + 0 Length: 2048
+Status: FREE Start index: + 2064 Length: 6144
+Status: ALLOCATED Start index: + 8224 Length: 1024
+Status: ALLOCATED Start index: + 9264 Length: 4096
+Status: FREE Start index: + 13376 Length: 52144
+
+Allocating 3072 bytes to ptr5
+Total Size = 65536 bytes
+Start Address = 0x100304000
+Partition Meta Size = 16 bytes
+Status: ALLOCATED Start index: + 0 Length: 2048
+Status: ALLOCATED Start index: + 2064 Length: 3072
+Status: FREE Start index: + 5152 Length: 3056
+Status: ALLOCATED Start index: + 8224 Length: 1024
+Status: ALLOCATED Start index: + 9264 Length: 4096
+Status: FREE Start index: + 13376 Length: 52144
+
+Freeing ptr1
+Total Size = 65536 bytes
+Start Address = 0x100304000
+Partition Meta Size = 16 bytes
+Status: FREE Start index: + 0 Length: 2048
+Status: ALLOCATED Start index: + 2064 Length: 3072
+Status: FREE Start index: + 5152 Length: 3056
+Status: ALLOCATED Start index: + 8224 Length: 1024
+Status: ALLOCATED Start index: + 9264 Length: 4096
+Status: FREE Start index: + 13376 Length: 52144
+
+Freeing ptr3
+Total Size = 65536 bytes
+Start Address = 0x100304000
+Partition Meta Size = 16 bytes
+Status: FREE Start index: + 0 Length: 2048
+Status: ALLOCATED Start index: + 2064 Length: 3072
+Status: FREE Start index: + 5152 Length: 4096
+Status: ALLOCATED Start index: + 9264 Length: 4096
+Status: FREE Start index: + 13376 Length: 52144
+
+Freeing ptr4
+Total Size = 65536 bytes
+Start Address = 0x100304000
+Partition Meta Size = 16 bytes
+Status: FREE Start index: + 0 Length: 2048
+Status: ALLOCATED Start index: + 2064 Length: 3072
+Status: FREE Start index: + 5152 Length: 60368
+
+Freeing ptr5
+Total Size = 65536 bytes
+Start Address = 0x100304000
+Partition Meta Size = 16 bytes
+Status: FREE Start index: + 0 Length: 65520
