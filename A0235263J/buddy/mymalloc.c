@@ -50,7 +50,6 @@ void print_memlist() {
     }
 }
 
-// Helper function to add a memory node to the buddy list
 void add_mem_node(TNode **llist, unsigned int start_addr, unsigned int size, int status) {
     TData *data = (TData *) malloc(sizeof(TData));
     data->status = status;
@@ -60,7 +59,6 @@ void add_mem_node(TNode **llist, unsigned int start_addr, unsigned int size, int
     insert_node(llist, node, ASCENDING);
 }
 
-// Helper function to free a memory node
 void free_mem_node(TNode **llist, TNode *node) {
     if(node->pdata) {
         free(node->pdata);
@@ -68,7 +66,6 @@ void free_mem_node(TNode **llist, TNode *node) {
     delete_node(llist, node);
 }
 
-// Find the first free node in a list
 TNode *find_best_free_node(TNode **llist) {
     reset_traverser(*llist, FRONT);
     TNode *node;
@@ -83,11 +80,9 @@ TNode *find_best_free_node(TNode **llist) {
     return NULL;
 }
 
-// Allocate memory from a specific node
 void *allocate_memory(TNode **llist, TNode* node) {
     unsigned int best_node_start_addr = node->pdata->start_addr;
     unsigned int blockSize = node->pdata->size;
-    // Delete this node
     free_mem_node(llist, node);
 
     add_mem_node(llist, best_node_start_addr, blockSize, ALLOCATED);
@@ -99,39 +94,33 @@ void *allocate_memory(TNode **llist, TNode* node) {
 void *mymalloc(size_t size) {
     if (size > MEMSIZE || size <= 0) return NULL;
 
-    // Initialize the largest block if not already done
     if (buddyList[MAX_ORDER - 1] == NULL) {
         add_mem_node(&buddyList[MAX_ORDER - 1], 0, MEMSIZE, FREE);
     }
 
-    // Determine the required block order
     unsigned int required_size = MINIMUM_BLOCK_SIZE;
     int target_order = 0;
 
     while (required_size < size) {
-        required_size <<= 1;  // Double the size
+        required_size <<= 1;
         target_order++;
     }
 
-    // Try to find a free block at the target order
     TNode *free_block = find_best_free_node(&buddyList[target_order]);
     if (free_block != NULL) {
         return allocate_memory(&buddyList[target_order], free_block);
     }
 
-    // Look for larger blocks to split
     for (int order = target_order + 1; order < MAX_ORDER; order++) {
         if (buddyList[order] != NULL) {
             TNode *larger_block = find_best_free_node(&buddyList[order]);
             if (larger_block != NULL) {
-                // Split down to target order
                 int current_split_order = order;
                 while (current_split_order > target_order) {
                     larger_block->pdata->status = ALLOCATED;
 
                     unsigned int half_size = larger_block->pdata->size / 2;
 
-                    // Create two smaller blocks
                     add_mem_node(&buddyList[current_split_order - 1],
                                larger_block->pdata->start_addr, half_size, FREE);
                     add_mem_node(&buddyList[current_split_order - 1],
@@ -141,24 +130,21 @@ void *mymalloc(size_t size) {
                     larger_block = find_best_free_node(&buddyList[current_split_order]);
                 }
 
-                // Now allocate from the target order
                 TNode *target_free_block = find_best_free_node(&buddyList[target_order]);
                 return allocate_memory(&buddyList[target_order], target_free_block);
             }
         }
     }
 
-    return NULL;  // No suitable block found
+    return NULL;
 }
 
 // Frees memory pointer to by ptr.
 void myfree(void *ptr) {
     if(ptr == NULL) return;
 
-    // Calculate the starting address offset
     unsigned int start_addr = (char *)ptr - _heap;
 
-    // Find the block in our buddy lists
     TNode *block_to_free = NULL;
     int block_order = -1;
 
@@ -169,7 +155,6 @@ void myfree(void *ptr) {
         }
     }
 
-    // Check if block was found and is allocated
     if (block_to_free == NULL) {
         dbprintf("Unable to find pointer for freeing\n");
         return;
@@ -183,39 +168,30 @@ void myfree(void *ptr) {
     dbprintf("Freeing block: Start=%u KB, Size=%u KB\n",
              start_addr >> 10, block_to_free->pdata->size >> 10);
 
-    // Mark the block as free
     block_to_free->pdata->status = FREE;
 
-    // Try to merge with buddy blocks
     int current_order = block_order;
     TNode *current_block = block_to_free;
 
     while (current_order < MAX_ORDER - 1) {
-        // Calculate buddy address using XOR
         unsigned int buddy_addr = current_block->pdata->start_addr ^
                                  (current_block->pdata->size);
 
         TNode *buddy_block = find_node(buddyList[current_order], buddy_addr);
 
-        // If buddy exists and is also free, merge them
         if (buddy_block != NULL && buddy_block->pdata->status == FREE) {
-            // Determine the merged block's start address (smaller of the two)
             unsigned int merged_start = (current_block->pdata->start_addr < buddy_addr) ?
                                       current_block->pdata->start_addr : buddy_addr;
             unsigned int merged_size = current_block->pdata->size * 2;
 
-            // Remove both current blocks
             free_mem_node(&buddyList[current_order], current_block);
             free_mem_node(&buddyList[current_order], buddy_block);
 
-            // Add the merged block to the next higher order
             add_mem_node(&buddyList[current_order + 1], merged_start, merged_size, FREE);
 
-            // Move to the next higher order for further merging
             current_order++;
             current_block = find_node(buddyList[current_order], merged_start);
         } else {
-            // No buddy to merge with, stop merging
             break;
         }
     }
