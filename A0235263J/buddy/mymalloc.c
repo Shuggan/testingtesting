@@ -171,26 +171,29 @@ void myfree(void *ptr) {
     block_to_free->pdata->status = FREE;
 
     int current_order = block_order;
-    TNode *current_block = block_to_free;
+    unsigned int current_start = block_to_free->pdata->start_addr;
+    unsigned int current_size = block_to_free->pdata->size;
 
     while (current_order < MAX_ORDER - 1) {
-        unsigned int buddy_addr = current_block->pdata->start_addr ^
-                                 (current_block->pdata->size);
+        unsigned int buddy_addr = current_start ^ current_size;
 
-        TNode *buddy_block = find_node(buddyList[current_order], buddy_addr);
+        TNode *current_node = find_node(buddyList[current_order], current_start);
+        TNode *buddy_node = find_node(buddyList[current_order], buddy_addr);
 
-        if (buddy_block != NULL && buddy_block->pdata->status == FREE) {
-            unsigned int merged_start = (current_block->pdata->start_addr < buddy_addr) ?
-                                      current_block->pdata->start_addr : buddy_addr;
-            unsigned int merged_size = current_block->pdata->size * 2;
+        if (current_node != NULL && buddy_node != NULL && 
+            current_node->pdata->status == FREE && buddy_node->pdata->status == FREE) {
+            
+            unsigned int merged_start = (current_start < buddy_addr) ? current_start : buddy_addr;
+            unsigned int merged_size = current_size * 2;
 
-            free_mem_node(&buddyList[current_order], current_block);
-            free_mem_node(&buddyList[current_order], buddy_block);
+            free_mem_node(&buddyList[current_order], current_node);
+            free_mem_node(&buddyList[current_order], buddy_node);
 
             add_mem_node(&buddyList[current_order + 1], merged_start, merged_size, FREE);
 
             current_order++;
-            current_block = find_node(buddyList[current_order], merged_start);
+            current_start = merged_start;
+            current_size = merged_size;
         } else {
             break;
         }
